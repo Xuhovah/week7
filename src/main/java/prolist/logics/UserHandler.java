@@ -23,7 +23,10 @@ public class UserHandler {
         boolean result = false;
         User u1 = userDAO.load(personId);
         if (u1 == null) {throw new SQLException("No user found");}
-        if (password != null && !password.equals(u1.getPassword())) {result = true;}
+        if (password != null && !password.equals(u1.getPassword())) {
+            u1.setPassword(password);
+            userDAO.update(u1);
+            result = true;}
 
         return result;
     }

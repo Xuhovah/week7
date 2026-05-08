@@ -63,7 +63,7 @@ public class UserHandlerUnitTest {
         assertFalse(successful, "Same password");
     }
 
-    /*
+
     @Test
     public void differentPasswordReturnsTrue() throws SQLException {
         // Phase 2 task:
@@ -82,6 +82,6 @@ public class UserHandlerUnitTest {
         assertTrue("new-password".equals(user.getPassword()));
         verify(userDAO).update(user);
     }
-    */
+
 
 }

@@ -20,9 +20,12 @@ public class UserHandler {
     public boolean updatePassword(Long personId, String password) throws SQLException {
         // TODO: Load the user via userDAO, validate the request, and update the password.
 //        throw new UnsupportedOperationException("TODO: implement updatePassword");
-        userDAO.load(personId);
-        if (password == null) {return false;}
-        if (password.equals(userDAO.getPassword())) {return false;}
+        boolean result = false;
+        User u1 = userDAO.load(personId);
+        if (u1 == null) {throw new SQLException("No user found");}
+        if (password != null) {result =  true;}
+        if (!password.equals(u1.getPassword())) {result =  true;}
+        return result;
     }
 
 }
